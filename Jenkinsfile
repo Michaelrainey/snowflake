@@ -17,4 +17,8 @@ mv /var/.snowsql ./
     }
 
   }
+  environment {
+    time = '1'
+    unit = 'HOURS'
+  }
 }
