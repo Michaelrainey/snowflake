@@ -1,11 +1,6 @@
 pipeline {
-  agent {
-    node {
-      label 'snowflake-sqitch'
-      customWorkspace '/usr/local/bin/sqitch'
-    }
-
-  }
+  agent none
+  
   stages {
     stage('Moving .snowsql to workspace and replacing snowsql in /bin') {
       steps {
