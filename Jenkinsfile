@@ -1,6 +1,5 @@
 pipeline {
   agent none
-  
   stages {
     stage('Moving .snowsql to workspace and replacing snowsql in /bin') {
       steps {
