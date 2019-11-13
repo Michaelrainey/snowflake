@@ -1,5 +1,10 @@
 pipeline {
-  agent none
+  agent {
+    node {
+      label 'snowflake'
+    }
+
+  }
   stages {
     stage('Moving .snowsql to workspace and replacing snowsql in /bin') {
       steps {
