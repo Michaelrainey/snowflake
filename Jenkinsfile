@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Deploy changes') {
       steps {
-        withCredentials(bindings: [usernamePassword(credentialsId: 'snowflake_cred', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        withCredentials(bindings: [usernamePassword(credentialsId: 'snowflake_creds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           sh '''
 sqitch deploy "db:snowflake://mrainey@aws_cas2.snowflakecomputing.com/mrainey?Driver=Snowflake;warehouse=mraineywh"            '''
         }
@@ -18,7 +18,7 @@ sqitch deploy "db:snowflake://mrainey@aws_cas2.snowflakecomputing.com/mrainey?Dr
 
     stage('Verify changes') {
       steps {
-        withCredentials(bindings: [usernamePassword(credentialsId: 'snowflake_cred', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        withCredentials(bindings: [usernamePassword(credentialsId: 'snowflake_creds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           sh '''
 sqitch verify "db:snowflake://mrainey@aws_cas2.snowflakecomputing.com/mrainey?Driver=Snowflake;warehouse=mraineywh"            '''
         }
